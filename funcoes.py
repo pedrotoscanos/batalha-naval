@@ -33,3 +33,16 @@ def posiciona_frota(frota):
             for posicao in navio:
                 tabuleiro[posicao[0]][posicao[1]] = 1
     return tabuleiro
+
+
+def afundados(frota, tabuleiro):
+    total = 0
+    for nome_navio in frota:
+        for navio in frota[nome_navio]:
+            acertos = 0
+            for posicao in navio:
+                if tabuleiro[posicao[0]][posicao[1]] == 'X':
+                    acertos += 1
+            if acertos == len(navio):
+                total += 1
+    return total
